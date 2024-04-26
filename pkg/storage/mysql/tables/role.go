@@ -1,7 +1,7 @@
 package tables
 
 type Role struct {
-	Id   uint   `gorm:"primaryKey;column:id"`
+	Id   uint   `gorm:"primaryKey;autoIncrement;column:id"`
 	Name string `gorm:"column:name"`
 }
 

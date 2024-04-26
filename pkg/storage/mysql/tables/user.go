@@ -3,7 +3,7 @@ package tables
 import "time"
 
 type User struct {
-	Id        uint      `gorm:"primaryKey;column:id"`
+	Id        uint      `gorm:"primaryKey;autoIncrement;column:id"`
 	Account   string    `gorm:"column:account"`
 	Password  string    `gorm:"column:password"`
 	Role      uint      `gorm:"column:role"`

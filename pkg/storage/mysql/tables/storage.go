@@ -1,7 +1,7 @@
 package tables
 
 type Storage struct {
-	Id    uint `gorm:"primaryKey;column:id"`
+	Id    uint `gorm:"primaryKey;autoIncrement;column:id"`
 	Type  uint `gorm:"column:type"`
 	Count uint `gorm:"column:count"`
 }

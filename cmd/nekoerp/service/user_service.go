@@ -98,7 +98,7 @@ func BlockUser(ctx *gin.Context) {
 		return
 	}
 	user.Blocked = true
-	orm.Db.Save(user)
+	orm.Db.Save(&user)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
@@ -128,7 +128,7 @@ func UnBlockUser(ctx *gin.Context) {
 		return
 	}
 	user.Blocked = false
-	orm.Db.Save(user)
+	orm.Db.Save(&user)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
@@ -166,7 +166,7 @@ func EditUser(ctx *gin.Context) {
 	if req.Role > 0 && req.Role < 3 {
 		user.Role = req.Role
 	}
-	orm.Db.Save(user)
+	orm.Db.Save(&user)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
@@ -197,7 +197,7 @@ func AddUser(ctx *gin.Context) {
 	user.Account = req.Account
 	user.Role = req.Role
 	user.Password = req.Password
-	orm.Db.Save(user)
+	orm.Db.Save(&user)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",

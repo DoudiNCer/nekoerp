@@ -108,7 +108,7 @@ func AddGoods(ctx *gin.Context) {
 	var goods tables.Goods
 	goods.Name = req.Name
 	goods.Price = req.Price
-	orm.Db.Save(goods)
+	orm.Db.Save(&goods)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
@@ -142,13 +142,13 @@ func Di(ctx *gin.Context) {
 		storage.Type = req.Type
 	}
 	storage.Count += req.Count
-	orm.Db.Save(storage)
+	orm.Db.Save(&storage)
 	di := tables.Di{
 		Type:     req.Type,
 		Count:    req.Count,
 		Operator: payload.Id,
 	}
-	orm.Db.Save(di)
+	orm.Db.Save(&di)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
@@ -183,13 +183,13 @@ func Tiao(ctx *gin.Context) {
 		return
 	}
 	storage.Count -= req.Count
-	orm.Db.Save(storage)
+	orm.Db.Save(&storage)
 	tiao := tables.Tiao{
 		Type:     req.Type,
 		Count:    req.Count,
 		Operator: payload.Id,
 	}
-	orm.Db.Save(tiao)
+	orm.Db.Save(&tiao)
 	ctx.JSON(http.StatusOK, service.Response{
 		Code:    0,
 		Message: "请求正常",
