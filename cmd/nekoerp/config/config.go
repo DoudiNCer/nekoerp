@@ -2,7 +2,7 @@ package config
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 )
 
 type Config struct {
@@ -22,7 +22,7 @@ func InitConfig() (*Config, error) {
 	var config Config
 
 	// 读取配置文件
-	configFile, err := ioutil.ReadFile("config/config.json")
+	configFile, err := os.ReadFile("config/config.json")
 	if err != nil {
 		return nil, err
 	}
