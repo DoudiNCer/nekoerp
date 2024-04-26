@@ -89,7 +89,7 @@ func ListGoods(ctx *gin.Context) {
 	var results []service.ListGoodsResp
 	page := orm.Db.Table("goods")
 	if req.Keyword != "" {
-		page = page.Where("goods.`name` LIKE", "%"+req.Keyword+"%")
+		page = page.Where("goods.`name` LIKE ? ", "%"+req.Keyword+"%")
 	}
 	page.Scan(&results)
 	ctx.JSON(http.StatusOK, service.ResponseList{Total: uint(total), List: results})
