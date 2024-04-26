@@ -1,0 +1,11 @@
+{
+  "isDebug": true,
+  "webHost": "0.0.0.0",
+  "webPort": 8080,
+  "mySQLHost": "127.0.0.1",
+  "mySQLPort": 3306,
+  "mySQLDataBase": "nekoerp",
+  "mySQLUsername": "root",
+  "mySQLPassword": "123456",
+  "JWTScreenKet": "NekoERPJWT"
+}
