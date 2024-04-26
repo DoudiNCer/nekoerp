@@ -104,6 +104,7 @@ func AddGoods(ctx *gin.Context) {
 	}
 	if req.Name == "" {
 		ctx.JSON(http.StatusBadRequest, service.Response{Code: -1, Data: "参数校验错误"})
+		return
 	}
 	var goods tables.Goods
 	goods.Name = req.Name
@@ -129,6 +130,7 @@ func Di(ctx *gin.Context) {
 	}
 	if req.Type <= 0 || req.Count <= 0 {
 		ctx.JSON(http.StatusBadRequest, service.Response{Code: -1, Data: "参数校验错误"})
+		return
 	}
 	var goods tables.Goods
 	orm.Db.First(&goods, req.Type)
@@ -169,6 +171,7 @@ func Tiao(ctx *gin.Context) {
 	}
 	if req.Type <= 0 || req.Count <= 0 {
 		ctx.JSON(http.StatusBadRequest, service.Response{Code: -1, Data: "参数校验错误"})
+		return
 	}
 	var goods tables.Goods
 	orm.Db.First(&goods, req.Type)
